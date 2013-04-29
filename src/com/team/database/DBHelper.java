@@ -85,12 +85,12 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put(ScheduleColumn.REMINDTIME, remindTime1);
         return db.update(SCHEDULE_TABLE, cv, where, whereValue);  
     } 
-    public Cursor select() {  
+    public Cursor selectschedule() {  
         SQLiteDatabase db = this.getReadableDatabase();  
         Cursor cursor = db.query(SCHEDULE_TABLE, ScheduleColumn.PROJECTION, null, null, null, null, null);  
         return cursor;  
     }
-    public Cursor getNote(String id){
+    public Cursor getschedule(String id){
 		SQLiteDatabase db = this.getReadableDatabase();
 		String where = ScheduleColumn._ID + "=?";
 		String[] whereValues = {id};
@@ -125,6 +125,11 @@ public class DBHelper extends SQLiteOpenHelper {
 		cv.put(TimeColumn.ENDTIME, endTime1);
 		return db.update(TIME_TABLE, cv, where, whereValue);
 	}
+	public Cursor selecttime() {  
+        SQLiteDatabase db = this.getReadableDatabase();  
+        Cursor cursor = db.query(TIME_TABLE, TimeColumn.PROJECTION, null, null, null, null, null);  
+        return cursor;  
+    }
 	
 	public Cursor gettime(String id) {  
 		SQLiteDatabase db = this.getReadableDatabase();
